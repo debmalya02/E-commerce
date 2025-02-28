@@ -108,6 +108,7 @@ const ProductDetails = () => {
           <div className="hidden md:flex flex-col space-y-4 mr-6">
             {selectedProduct.images.map((image, index) => (
               <img
+              key={`desktop-thumb-${index}`}
                 src={image.url}
                 alt={image.altText || `Thumbnail ${index}`}
                 className={`w-20 h-20 object-cover rounded-lg cursor-pointer border ${
@@ -131,6 +132,7 @@ const ProductDetails = () => {
           <div className="md:hidden flex overscroll-x-scroll space-x-4 mb-4 ">
             {selectedProduct.images.map((image, index) => (
               <img
+              key={`mobile-thumb-${index}`} 
                 src={image.url}
                 alt={image.altText || `Thumbnail ${index}`}
                 className={`w-20 h-20 object-cover rounded-lg cursor-pointer border ${
@@ -236,7 +238,7 @@ const ProductDetails = () => {
           <h2 className="text-2xl text-center font-medium mb-4">
             You May Also Like
           </h2>
-          <ProductGrid />
+          <ProductGrid products={similarProducts}/>
         </div>
       </div>
     </div>
